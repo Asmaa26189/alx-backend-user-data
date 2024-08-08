@@ -5,17 +5,20 @@ from flask import Flask, request
 
 
 class Auth:
-    '''Auth'''
+    ''' A Class to manage the API authentication.
+    '''
 
     def require_auth(
             self,
             path: str,
             excluded_paths: List[str]
             ) -> bool:
-        ''' require_auth '''
+        ''' Required auth
+        '''
         if path is None or excluded_paths is None or not excluded_paths:
             return True
 
+        # handle * at end of excluded paths
         if path[-1] == '/':
             path = path[:-1]
 
@@ -49,7 +52,8 @@ class Auth:
             self,
             request=None
             ) -> str:
-        '''authorization_header'''
+        '''Auth header
+        '''
         if request is None:
             return None
 
@@ -59,6 +63,7 @@ class Auth:
             self,
             request=None
             ) -> TypeVar('User'):
-        ''' current_user'''
+        ''' Current User
+        '''
         request = Flask(__name__)
         return None

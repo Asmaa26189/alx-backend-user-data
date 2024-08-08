@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-""" User """
+""" User module
+"""
 import hashlib
 from models.base import Base
 
 
 class User(Base):
-    """ User """
+    """ User class
+    """
 
     def __init__(self, *args: list, **kwargs: dict):
-        """ __init__ """
+        """ Initialize a User instance
+        """
         super().__init__(*args, **kwargs)
         self.email = kwargs.get('email')
         self._password = kwargs.get('_password')
